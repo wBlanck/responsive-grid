@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,5 +6,68 @@
 }
 
 body {
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
+}
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+.stacked {
+  display: grid;
+}
+.stacked > * {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.product-grid {
+  display: grid;
+  /* minimum 15rem - example if container width = 40rem, 2 cards will fit next to each other and use up the remaining space. if 45+ it will be 3 next to each other and so on  */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.1rem;
+}
+.card {
+  aspect-ratio: 1 /1.25;
+}
+.card__content {
+  background: white;
+  align-self: end;
+  margin: 0.5rem 0.5rem 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 0.25rem 1rem rgba(0 0 0 / 0.1);
+}
+.card__title {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.1;
+}
+.card__price {
+  font-size: 1.75rem;
+}
+.card__img {
+  width: 100%;
+  aspect-ratio: 1 /1;
+  object-fit: cover;
+}
+@media (min-width: 60em) {
+  .card__img {
+    aspect-ratio: 1 / 1;
+  }
+  .card.featured {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  .card.featured .card__img {
+    aspect-ratio: 1/1.25;
+  }
+  .card.featured .card__title {
+    font-size: 1.75rem;
+  }
 }
